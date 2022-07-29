@@ -1,0 +1,60 @@
+.monitor_box {
+    width: 300px;
+    height: 106px;
+    /* position: absolute;
+    display: none;
+    top: 190px;
+    left: 596px;
+    z-index: 10; */
+
+    & .monitor_title{
+        height: 28px;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        & .monitor_title_right{
+            margin-right: 5px;
+        }
+    }
+    
+    & .monitor_content{
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        padding: 10px 20px;
+        & .monitor_content_item{
+            padding: 6px 0;
+        }
+    }
+}
+.monitor_content_item span {
+    color: rgba(9, 106, 218, 1);
+}
+
+.monitor_contentSuccess{
+    background-image: url('@assets/modelAssets/fuzaiDilog/success.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    & .monitor_title_right{
+        color: rgba(13, 184, 201, 1);
+    }
+    & .monitor_content_data{
+        color: rgba(242, 152, 51, 1);
+    }
+}
+
+.monitor_contentError{
+    background-image: url('@assets/modelAssets/fuzaiDilog/error.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    & .monitor_title_right {
+        color: rgba(242, 95, 19, 1);
+    }
+    & .monitor_content_data {
+        color: rgba(242, 95, 19, 1);
+    }
+}

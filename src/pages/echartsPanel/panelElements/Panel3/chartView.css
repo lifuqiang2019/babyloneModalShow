@@ -1,0 +1,80 @@
+.model_charts_data {
+    height: 180px;
+    width: 100%;
+
+    & .chartDataThree_leftX {
+        height: 114px;
+        width: 16px;
+        border-right: 1px solid rgba(29, 174, 255, 0.2);
+        margin: 24px 24px 0 0;
+        position: relative;
+
+        & .chartDataThree_leftX_dian {
+            width: 4px;
+            height: 4px;
+            border-radius: 4px;
+            background: #1DAEFF;
+            position: absolute;
+            right: -2px;
+            top: 0;
+        }
+    }
+
+    & .chartDataThree_content {
+        width: calc(100% - 40px);
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-around;
+        padding-top: 20px;
+
+        & .chartDataThree_item {
+            color: #fff;
+            height: 56px;
+            width: 100%;
+
+            & .chartDataThree_top {
+                font-size: 14px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+
+                & .colorName {
+                    color: rgba(210, 174, 29, 1);
+                }
+            }
+
+            & .chartDataThree_bottom {
+                width: 100%;
+                height: 12px;
+                position: relative;
+                display: flex;
+
+                & .chartDataThree_bottom_left {
+                    position: relative;
+                    height: 100%;
+                    background: linear-gradient(270deg, rgba(29, 174, 255, 0) 0%, rgba(29, 174, 255, 1) 100%);
+
+                    & span {
+                        display: inline-block;
+                        height: 12px;
+                        width: 4px;
+                        background-color: rgba(29, 174, 254, 1);
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+
+                & .chartDataThree_bottom_right {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(9, 61, 107, 0.2);
+                }
+            }
+        }
+    }
+}

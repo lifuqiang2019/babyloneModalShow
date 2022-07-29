@@ -1,0 +1,61 @@
+.Face_box {
+    width: 100%;
+    height: 190px;
+    display: flex;
+    color: #A9BBD1;
+    padding-top: 20px;
+
+    & .FaceImg {
+        width: 164px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url(@assets/modelAssets/SecurityMonitoring/faceK.svg);
+        background-size: 100%;
+
+        & img {
+            width: 134px;
+        }
+    }
+
+    & .FaceData {
+        width: calc(100% - 150px);
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: space-between;
+        margin-left: 10px;
+
+        & .FaceData_item {
+            width: 100%;
+            margin-top: 5px;
+
+            & .FaceName {
+                background: rgba(29, 174, 255, 0.1);
+                color: rgb(29, 174, 255);
+                font-weight: bold;
+            }
+        }
+
+        & .FaceData_tlt {
+            & img {
+                width: 14px;
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        & .FaceData_content {
+            width: 100%;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+            line-height: 24px;
+            text-indent: 10px;
+        }
+    }
+}

@@ -47,7 +47,7 @@ const webpackBaseConfig = {
                 use: cssLoaders
             },
             {
-                test: /\.(png|jpg|jpeg|gif|eot|woff|woff2|ttf|svg|otf|webp)$/,
+                test: /\.(png|jpg|jpeg|gif|eot|woff|woff2|ttf|svg|otf|webp|mp4)$/,
                 type: "asset"
             }
         ]

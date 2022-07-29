@@ -1,0 +1,71 @@
+.model_charts_data {
+    height: 200px;
+    width: 100%;
+
+    & .monitoringVideo {
+        width: 100%;
+        height: 190px;
+        background-color: #333;
+        margin-top: 10px;
+
+        & span {
+            display: inline-block;
+            color: #A9BBD1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        & video {
+            width: 100%;
+            margin-top: 5px;
+        }
+    }
+
+    & .monitoring_information {
+        width: 100%;
+        padding: 5px 0;
+        color: #A9BBD1;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+
+        & .moitoringSatusSuccess {
+            color: #3DD36E;
+        }
+
+        & .moitoringSatusOut {
+            color: #A9BBD1;
+        }
+
+        & .moitoringSatusError {
+            color: red;
+        }
+
+
+        & .monitoring_dian {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 6px;
+            vertical-align: middle;
+        }
+
+        & .monitoring_dianSuccess {
+            background-color: #3DD36E;
+        }
+
+        & .monitoring_dianOut {
+            background-color: #A9BBD1;
+        }
+
+        & .monitoring_dianError {
+            background-color: red;
+        }
+
+    }
+
+}
