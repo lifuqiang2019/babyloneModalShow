@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="8px" viewBox="0 0 20 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>蓝色指针</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="蓝色指针" fill="#00AFFF">
+            <rect id="矩形" x="0" y="6" width="20" height="2"></rect>
+            <path d="M9.99529685,0.141419029 L13.3665651,3.51257632 C13.4446712,3.59067989 13.4446733,3.71731289 13.3665697,3.79541903 C13.3290623,3.83292773 13.2781905,3.854 13.2251461,3.854 L6.48283148,3.854 C6.37237453,3.854 6.28283148,3.76445695 6.28283148,3.654 C6.28283148,3.60095784 6.30390194,3.55008806 6.34140779,3.51258097 L9.71245414,0.141423683 C9.79055772,0.0633175396 9.91719071,0.063315456 9.99529685,0.141419029 Z" id="路径"></path>
+        </g>
+    </g>
+</svg>

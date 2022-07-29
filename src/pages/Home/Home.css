@@ -1,0 +1,12 @@
+.page-home {
+  position: relative;
+  overflow: hidden;
+  & .banner-box {
+    padding-top: 46px;
+    max-width: 100%;
+    text-align: center;
+    /* margin-top: -40px; */
+    margin: auto;
+    overflow: hidden;
+  }
+}

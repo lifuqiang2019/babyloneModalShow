@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>编组 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组-4">
+            <g id="安全设备">
+                <polygon id="矩形" fill="#1DAEFF" opacity="0.100000001" points="4.70588235 4.70588235 75.2941176 4.70588235 75.2941176 75.2941176 4.70588235 75.2941176"></polygon>
+                <rect id="矩形" stroke="#1DAEFF" opacity="0.05" x="0.5" y="0.5" width="79" height="79"></rect>
+                <polygon id="路径" fill="#1DAEFF" points="11.7647059 0 11.7647059 1.17647059 1.17647059 1.17647059 1.17647059 80 -1.71151981e-12 80 -1.71151981e-12 0"></polygon>
+                <polygon id="路径" fill="#1DAEFF" points="68.2352941 80 68.2352941 78.8235294 78.8235294 78.8235294 78.8235294 7.10542736e-14 80 7.10542736e-14 80 80"></polygon>
+            </g>
+            <g id="电子秤_industrial-scales" transform="translate(22.000000, 20.000000)" stroke="#1DAEFF" stroke-linejoin="round" stroke-width="2">
+                <polygon id="路径" points="3.92156863 27.4509804 31.372549 27.4509804 35.2941176 35.2941176 0 35.2941176"></polygon>
+                <line x1="9.80392157" y1="35.2941176" x2="9.80392157" y2="39.2156863" id="路径" stroke-linecap="round"></line>
+                <line x1="17.6470588" y1="7.84313725" x2="17.6470588" y2="27.4509804" id="路径" stroke-linecap="round"></line>
+                <rect id="矩形" x="10.7843137" y="0" width="13.7254902" height="7.84313725"></rect>
+                <line x1="25.4901961" y1="35.2941176" x2="25.4901961" y2="39.2156863" id="路径" stroke-linecap="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

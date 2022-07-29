@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="585px" height="208px" viewBox="0 0 585 208" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>异常总负载</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F8DBCE" offset="0%"></stop>
+            <stop stop-color="#FCEFE9" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFBF10" offset="0%"></stop>
+            <stop stop-color="#E74214" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.53610642%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFF5EB" offset="0%"></stop>
+            <stop stop-color="#FFD3C4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#FEBB10" offset="0%"></stop>
+            <stop stop-color="#E84914" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-5" points="541.843418 14.8570174 537 34.1386233 547.64357 32.9062213 545.430647 49 559 23.9820823 546.702817 25.7707011 552.425152 11"></polygon>
+        <filter x="-4.5%" y="-2.6%" width="109.1%" height="110.5%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 0.700237772   0 0 0 0 0.320288129   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="异常总负载">
+            <path d="M369,0 L584.510705,0 L524.510705,60 L389,60 C377.954305,60 369,51.045695 369,40 L369,0 L369,0 Z" id="矩形" fill="url(#linearGradient-1)" transform="translate(476.755353, 30.000000) scale(-1, -1) translate(-476.755353, -30.000000) "></path>
+            <path d="M1.70530257e-13,0 L419.489295,0 L359.489295,60 L20,60 C8.954305,60 1.71882964e-13,51.045695 1.70530257e-13,40 L1.70530257e-13,0 L1.70530257e-13,0 Z" id="矩形" fill="url(#linearGradient-2)"></path>
+            <path d="M4,69 L581,69 C583.209139,69 585,70.790861 585,73 L585,204 C585,206.209139 583.209139,208 581,208 L4,208 C1.790861,208 2.705415e-16,206.209139 0,204 L0,73 C-2.705415e-16,70.790861 1.790861,69 4,69 Z" id="矩形" fill="#FFFFFF" opacity="0.149999991"></path>
+            <path d="M10,69 L575,69 C577.209139,69 579,70.790861 579,73 L579,182 C579,193.045695 570.045695,202 559,202 L26,202 C14.954305,202 6,193.045695 6,182 L6,73 C6,70.790861 7.790861,69 10,69 Z" id="矩形" fill="url(#linearGradient-3)"></path>
+            <g id="路径-10">
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                <use fill="url(#linearGradient-4)" fill-rule="evenodd" xlink:href="#path-5"></use>
+            </g>
+        </g>
+    </g>
+</svg>

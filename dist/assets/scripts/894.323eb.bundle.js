@@ -1,0 +1,1 @@
+(self.webpackChunkvip_site_pratice_1=self.webpackChunkvip_site_pratice_1||[]).push([[894],{95894:(e,t,a)=>{"use strict";a.r(t),a.d(t,{default:()=>c});var n=a(67294);const c=function(){return n.createElement(n.Fragment,null,n.createElement("div",{className:"page-home layout-container"},n.createElement("div",{className:"banner-box"},"首页")))}}}]);
