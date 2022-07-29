@@ -80,10 +80,10 @@ const ChartView: FC<Iprops> = (props) => {
 
     useEffect(() => {
         setChartData(monitoringData)
-        timeStart()
+        // timeStart()
 
         return () => {
-            clearInterval(timeInterval)
+            // clearInterval(timeInterval)
         }
     }, [])
     
