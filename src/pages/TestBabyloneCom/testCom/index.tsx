@@ -1,5 +1,17 @@
 import React, { FC, useEffect, useState, useRef } from "react";
-import { FreeCamera, ArcRotateCamera, UniversalCamera, Camera, Vector3, HemisphericLight, MeshBuilder, SceneLoader, Scene } from "@babylonjs/core";
+import { 
+  FreeCamera, 
+  ArcRotateCamera, 
+  UniversalCamera, 
+  Camera, 
+  Vector3, 
+  HemisphericLight, 
+  MeshBuilder, 
+  SceneLoader, 
+  Scene,
+  ActionManager,
+  PointerEventTypes
+} from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
 // import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import '@babylonjs/loaders'
@@ -30,14 +42,43 @@ export const SceneBabylon: FC<{}> = () => {
   };
 
   const onRender = (scene: any) => {};
+  const modelPick = (e: any) => {
+    // 1: 异常监控器, 2: 正常监控器, 3: 未开启监控器
+    const JF_SXT_STATUS_MAP: any = {
+      Jf_Sxt_001: 1,
+      Jf_Sxt_004: 2,
+      Jf_Sxt_003: 3,
+      Jf_Sxt_002: 3,
+    }
+    const mesh = e.pickInfo.pickedMesh
+    const meshName = mesh.name
 
-  const loadModal = (modalName) => {
+    if(JF_SXT_STATUS_MAP[meshName]) {
+
+    }
+    
+    console.log("meshName", meshName, mesh)
+  }
+
+  const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "http://10.0.15.116:5500/src/pages/TestBabyloneCom/sceneGltfs/jifang/", 
+      "http://localhost:5500/src/pages/TestBabyloneCom/sceneGltfs/jifang/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
         scene.activeCamera.beta = Math.PI / 6;
         scene.activeCamera.radius = 0.31;
+
+        // 初始化遍历模型
+        const clearMeshObj: any = {}
+        const clearMeshArr = ["jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001"]
+        clearMeshArr.forEach(clearMesh => clearMeshObj[clearMesh] = clearMesh)
+        scene.meshes.forEach(mesh => {
+          mesh.actionManager = new ActionManager(scene)
+          if(clearMeshObj[mesh.id]) mesh.isVisible = false
+        })
+
+        // 模型点击拾取
+        scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
     });
   }
 

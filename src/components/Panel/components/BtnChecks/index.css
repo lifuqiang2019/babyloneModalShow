@@ -1,0 +1,128 @@
+.btn_box {
+    width: 200px;
+    position: absolute;
+    top: 360px;
+    z-index: 999;
+    left:20px;
+    transform: translateY(-50%);
+}
+  
+.btn_box button {
+    font-size: 14px;
+    color: #fff;
+    user-select: none;
+    cursor: pointer;
+}
+
+.btn_list_big {
+    height: 26px;
+}
+
+.btn_list,
+.btn_list_big,
+.btn_list_lt {
+    padding: 6px 0;
+}
+
+@keyframes listStauts {
+    0% {
+        transform: scale(0.3);
+        max-height: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        max-height: 600px;
+    }
+}
+
+@keyframes listStautsS {
+    0% {
+        transform: scale(1);
+        max-height: 600px;
+    }
+
+    100% {
+        transform: scale(0.3);
+        max-height: 0;
+    }
+}
+
+.childBtn_fang {
+    animation: listStauts 0.5s linear forwards;
+    overflow: hidden;
+    padding-left: 20px;
+}
+  
+.childBtn_shou {
+    animation: listStautsS 0.5s linear forwards;
+    overflow: hidden;
+    padding-left: 20px;
+}
+
+@keyframes BigRunReverse {
+
+    0% {
+      width: 160px;
+      height: 34px;
+    }
+  
+    100% {
+      width: 140px;
+      height: 32px;
+    }
+  
+}
+  
+.computerRoom_btn {
+    width: 140px;
+    height: 32px;
+    background-image: url(@assets/modelAssets/jifang/jfBig2.png);
+    background-size: 100%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    animation: BigRunReverse 0.5s linear forwards;
+}
+
+.computerRoomBlue_btn {
+    background-size: 100%;
+    width: 160px;
+    height: 34px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: url(@assets/modelAssets/jifang/jfBig1.png);
+    animation: BigRun 0.5s linear forwards;
+}
+  
+@keyframes LtRun {
+    0% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+  
+.machine_btn {
+    width: 114px;
+    height: 26px;
+    background-image: url(@assets/modelAssets/jifang/jfLt2.png);
+    background-size: 100%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.machineBlue_btn {
+    width: 114px;
+    height: 26px;
+    background-image: url(@assets/modelAssets/jifang/jfLt1.png);
+    background-size: 100%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    animation: LtRun 1s linear forwards;
+}
