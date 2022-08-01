@@ -14,7 +14,7 @@ import {
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
 // import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
-import '@babylonjs/loaders'
+import '@babylonjs/loaders';
 // import '@babylonjs/inspector'
 
 
@@ -79,7 +79,8 @@ const SceneBabylon: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jf_jg_a.gltf")
+    loadModal("jf_jg_a.gltf");
+    
   }, []);
 
   return <>

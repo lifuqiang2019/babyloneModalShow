@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
+
 module.exports = {
     mode: "development",
     output: {
