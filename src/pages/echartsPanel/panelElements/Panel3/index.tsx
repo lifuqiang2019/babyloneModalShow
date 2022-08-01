@@ -9,7 +9,6 @@ import React, {
   const PanelElement: FC<{}> = () => {
     return (
       <Panel title="市总电负载">
-
         <ChartView />
       </Panel>
     );

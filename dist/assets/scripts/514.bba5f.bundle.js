@@ -1,1 +1,0 @@
-(self.webpackChunkvip_site_pratice_1=self.webpackChunkvip_site_pratice_1||[]).push([[514],{18514:(e,t,a)=>{"use strict";a.r(t),a.d(t,{default:()=>c});var n=a(67294),s=a(50632);const c=function(){return n.createElement(n.Fragment,null,n.createElement(n.Suspense,{fallback:s.Z},n.createElement("div",{className:"ques-info"},"Page3_")))}}}]);

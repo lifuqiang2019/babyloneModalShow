@@ -15,7 +15,7 @@ export const routes: RouteProps[] = [
   {
     path: "/",
     exact: true,
-    component: Home,
+    component: TestBabyloneCom,
   },
   {
     path: "/login",
