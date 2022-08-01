@@ -13,15 +13,16 @@ import {
   PointerEventTypes
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
-// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import '@babylonjs/loaders'
 // import '@babylonjs/inspector'
+import gsap from 'gsap';
 
 
 const SceneBabylon: FC<{}> = () => {
   const cameraRef = useRef(null)
   const sceneRef = useRef(null)
   const canvasRef = useRef(null)
+  const shows: any = useRef({ "jg_03": false }).current
 
   const onSceneReady = (scene: Scene) => {
     // scene.debugLayer.show({
@@ -57,7 +58,13 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
-    console.log("meshName", meshName, mesh)
+    console.log("meshName", mesh.parent.name)
+    if(shows[mesh.parent.name] !== undefined) {
+      const position = mesh.parent.position
+      const z = position.z + (!shows[mesh.parent.name] ? 0.014 : -0.014)
+      gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
+      shows[mesh.parent.name] = !shows[mesh.parent.name]
+    }
   }
 
   const loadModal = (modalName: string) => {
