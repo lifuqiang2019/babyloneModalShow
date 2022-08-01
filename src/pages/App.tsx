@@ -8,7 +8,7 @@ const App = () => {
   return (
     <RecoilRoot>
       <Router basename='/'>
-         <Banner />
+         {/* <Banner /> */}
          <div className="right-page-container">
           <Routes />
          </div>
