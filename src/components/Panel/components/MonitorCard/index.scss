@@ -1,0 +1,138 @@
+.monitor_contentOtr>div{
+    width: calc(100% - 30px);
+    margin: 10px 15px;
+}
+.monitor_boxOtr{
+    width: 300px;
+    height: 360px;
+
+    & .monitor_titleOtr{
+        width: 100%;
+        height: 30px;
+        color: #fff;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+
+        & img{
+            height: 20px;
+            margin: 0 15px;
+        }
+    }
+    & .monitor_contentOtr{
+        width: 100%;
+        height: calc(100% - 60px);
+        margin-top: 10px;
+        background-color: rgba(11, 16, 23, 0.6);
+        color: rgba(255, 255, 255, 1);
+        overflow: hidden;
+        & .monitor_content_oneOtr{
+            display: flex;
+            justify-content: space-between;
+
+            & .monitor_content_one_leftOtr{
+                & span{
+                    display: inline-block;	
+                }
+                & .monitor_content_one_left_statusOtr{
+                    margin-left: 26px;
+                }
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            }
+            & .monitor_content_one_rightOtr{
+                & span{
+                    display: inline-block;
+                }
+                & .monitor_content_one_right_timeOtr{
+                    margin-left: 26px;
+                }
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            }
+            
+        }
+        & .monitor_content_towOtr{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        }
+        
+        & .monitor_content_threeOtr{
+            display: flex;
+            justify-content: space-between;
+            & .monitor_content_three_tiaoOtr{
+                width: calc(100% - 90px);
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.35);
+                margin-top: 12px;
+                position: relative;
+                & span{
+                    display: inline-block;
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 4px;
+                    background-color: rgba(255, 255, 255, 0.35);
+                    position: absolute;
+                    right: 0;
+                    top: -2px;
+                }
+            }
+        }
+        
+        & .monitor_content_videoOtr{
+            height: 140px;
+            background-color: #333;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & span{
+                font-size: 12px;
+            }
+            & video {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        
+        
+    }
+}
+
+.monitor_contentSuccessOtr{
+    & .monitor_titleOtr{
+        background: linear-gradient(90deg, #00AFFF 0%, rgba(122, 246, 255, 0.85) 100%);
+    }
+    
+    & .monitor_contentOtr{
+        border: 2px solid rgba(125, 245, 255, 1);
+        & .monitor_content_one_left_statusOtr{
+            color: #3DD36E;
+        }
+    }
+}
+
+.monitor_contentOutOtr{
+    & .monitor_titleOtr{
+        background: linear-gradient(90deg, #BFBFBF 0%, rgba(95, 95, 95, 0.85) 100%);
+    }
+    
+    & .monitor_contentOtr{
+        border: 2px solid rgba(128, 128, 128, 1);
+        & .monitor_content_one_left_statusOtr{
+            color: #A9BBD1;
+        }
+    }
+}
+
+.monitor_contentErrorOtr{
+    & .monitor_titleOtr{
+        background: linear-gradient(90deg, #E74214 0%, rgba(255, 191, 16, 0.85) 100%);
+    }
+    
+    & .monitor_contentOtr{
+        border: 2px solid rgba(251, 107, 105, 1);
+        & .monitor_content_one_left_statusOtr{
+            color: red;
+        }
+    }
+}
