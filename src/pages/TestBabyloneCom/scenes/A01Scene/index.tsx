@@ -61,7 +61,7 @@ const SceneBabylon: FC<{}> = () => {
     if(!mesh.parent || !mesh.parent.name) return
     if(mesh.parent.name === "jg_03") {
       const position = mesh.parent.position
-      const z = position.z + (!shows[mesh.parent.name] ? 0.014 : -0.014)
+      const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
       gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
       shows[mesh.parent.name] = !shows[mesh.parent.name]
     }
