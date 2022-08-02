@@ -10,6 +10,12 @@ const _modeFlag = _mode === "production";
 const _mergeConfig = require(`./config/webpack.${_mode}.js`);
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+const CopywebpackPlugin = require('copy-webpack-plugin');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+
+const cesiumWorkers = '../Build/Cesium/Workers';
+const cesiumSource = 'node_modules/cesium/Source';
+
 // css解析
 let cssLoaders = [
     MiniCssExtractPlugin.loader,
@@ -68,10 +74,20 @@ const webpackBaseConfig = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: _modeFlag ? "assets/styles/[name].[contenthash:5].css" : "assets/styles/[name].css",
-            chunkFilename: _modeFlag ? "assets/styles/[id].[contenthash:5].css" : "assets/styles/[id].css",
-            ignoreOrder: true,
-        })
+          filename: _modeFlag ? "assets/styles/[name].[contenthash:5].css" : "assets/styles/[name].css",
+          chunkFilename: _modeFlag ? "assets/styles/[id].[contenthash:5].css" : "assets/styles/[id].css",
+          ignoreOrder: true,
+        }),
+        new CopywebpackPlugin({
+          patterns: [
+            { from: join(cesiumSource, cesiumWorkers), to: 'Workers' },
+            { from: join(cesiumSource, 'Assets'), to: 'Assets' },
+            { from: join(cesiumSource, 'Widgets'), to: 'Widgets' }
+          ]
+        }),
+        new DefinePlugin({
+          CESIUM_BASE_URL: JSON.stringify('./'),
+        }),
     ]
 }
 
