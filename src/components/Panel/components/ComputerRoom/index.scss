@@ -1,0 +1,26 @@
+.computerRoomOtrs{
+    display: flex;
+    flex-wrap: wrap;
+    width: 260px;
+    height: 180px;
+    & .computerRoom_itemOtrs{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        & img{
+            width: 44px;
+        }
+        
+        & .computerRoom_item_dataOtrs{
+            padding-left: 20px;
+            & .computerRoom_item_tltOtrs{
+                color: #fff;
+                font-size: 14px;
+            }
+            & .computerRoom_item_numOtrs{
+                color: #38D0D1;
+                font-size: 14px;
+            }
+        }
+    }
+}

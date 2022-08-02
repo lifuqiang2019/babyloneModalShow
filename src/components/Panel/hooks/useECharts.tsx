@@ -6,10 +6,10 @@ import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/title'
 import 'echarts/theme/macarons'
 import { GridComponent, TooltipComponent, LegendComponent } from 'echarts/components';
-import { LineChart } from 'echarts/charts';
+import { LineChart, PieChart, BarChart } from 'echarts/charts';
 
 function useECharts(chartRef, config) {
-  echarts.use([GridComponent, TooltipComponent, LegendComponent, LineChart]);
+  echarts.use([GridComponent, TooltipComponent, LegendComponent, LineChart, PieChart, BarChart]);
   let chartInstance = null
 
   function renderChart() {
