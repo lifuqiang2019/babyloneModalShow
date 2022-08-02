@@ -60,6 +60,7 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
+    if(!mesh.parent.name) return
     console.log("meshName", mesh.parent.name)
     if(shows[mesh.parent.name] !== undefined) {
       const position = mesh.parent.position

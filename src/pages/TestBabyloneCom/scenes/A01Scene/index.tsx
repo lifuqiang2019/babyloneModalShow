@@ -58,6 +58,7 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
+    if(!mesh.parent.name) return
     if(mesh.parent.name === "jg_03") {
       const position = mesh.parent.position
       const z = position.z + (!shows[mesh.parent.name] ? 0.014 : -0.014)
