@@ -1,10 +1,13 @@
 const {
     join,
-    resolve
+    resolve,
+    posix
 } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const WebpackBar = require('webpackbar');
+
 
 module.exports = {
     mode: "development",
@@ -14,6 +17,9 @@ module.exports = {
         filename: "scripts/[name].bundle.js"
     },
     devServer: {
+        // assetsSubDirectory: 'static',
+        // assetsPublicPath: '/',
+        publicPath: '/',
         historyApiFallback: true,
         contentBase: join(__dirname, '../dist'),
         port: 8082,
@@ -36,5 +42,10 @@ module.exports = {
             name: '巽联coding',
             profile: true,
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+              { from: resolve(__dirname, '../static'), to: "static" },
+            ],
+        })
     ]
 }

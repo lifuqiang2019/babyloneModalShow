@@ -13,15 +13,16 @@ import {
   PointerEventTypes
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
-// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
-import '@babylonjs/loaders'
+import '@babylonjs/loaders';
 // import '@babylonjs/inspector'
+import gsap from 'gsap';
 
 
 const SceneBabylon: FC<{}> = () => {
   const cameraRef = useRef(null)
   const sceneRef = useRef(null)
   const canvasRef = useRef(null)
+  const shows: any = useRef({ "jg_03": false }).current
 
   const onSceneReady = (scene: Scene) => {
     // scene.debugLayer.show({
@@ -57,13 +58,18 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
-    console.log("meshName", meshName, mesh, sceneRef.current)
-    mesh.position.set(mesh.position.x, mesh.position.y, mesh.position.z + 0.014)
+    if(!mesh.parent || !mesh.parent.name) return
+    if(mesh.parent.name === "jg_03") {
+      const position = mesh.parent.position
+      const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
+      gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
+      shows[mesh.parent.name] = !shows[mesh.parent.name]
+    }
   }
 
   const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "http://localhost:5500/src/pages/TestBabyloneCom/sceneGltfs/jf_jg/ddjg_a/", 
+      "/static/jf_jg/ddjg_a/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
         scene.activeCamera.beta = Math.PI / 3;
@@ -79,7 +85,8 @@ const SceneBabylon: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jf_jg_a.gltf")
+    loadModal("jf_jg_a.gltf");
+    
   }, []);
 
   return <>

@@ -62,7 +62,7 @@ const SceneBabylon: FC<{}> = () => {
 
   const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "http://localhost:5500/src/pages/TestBabyloneCom/sceneGltfs/jf_jg/jifang/", 
+      "/static/jf_jg/jifang/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
         scene.activeCamera.beta = Math.PI / 6;
