@@ -86,7 +86,7 @@ const webpackBaseConfig = {
           ]
         }),
         new DefinePlugin({
-          CESIUM_BASE_URL: JSON.stringify('./'),
+          CESIUM_BASE_URL: JSON.stringify(_mode == 'development' ? './' : 'http://localhost/'),
         }),
     ]
 }

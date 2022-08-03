@@ -3,6 +3,7 @@ const {
     resolve
 } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const {
     CleanWebpackPlugin
@@ -68,6 +69,11 @@ module.exports = {
                     }
                 ]
             }
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+              { from: resolve(__dirname, '../static'), to: "static" },
+            ],
         })
     ]
 }

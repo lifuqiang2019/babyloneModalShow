@@ -7,7 +7,7 @@ const BtnBoxs = (props: any) => {
 
     const computerClick = (data, num, key, parentKey) => {
         const name = data.name
-        if(parentKey === undefined) return
+        // if(parentKey === undefined) return
 
         btnData.forEach((btn, index) => {
             btn.children.forEach((btn_child, btn_index) => {
