@@ -10,6 +10,15 @@ import React, {
   import Panel5 from "./panelElements/Panel5";
   import Panel6 from "./panelElements/Panel6";
   import Panel7 from "./panelElements/Panel7";
+  import Monitor from "./panelElements/Monitor";
+  import AccessControl from "./panelElements/AccessControl";
+  import EquipmentDilog from "./panelElements/EquipmentDilog";
+  import CabinetInformation from "./panelElements/CabinetInformation";
+  import StatisticsOne from "./panelElements/StatisticsOne";
+  import StatisticsTow from "./panelElements/StatisticsTow";
+  import NetworkStatistics from "./panelElements/NetworkStatistics";
+  
+  
   
   const InterviewExperInfo: FC<{}> = () => {
     return (
@@ -24,6 +33,13 @@ import React, {
               <Panel5 />
               <Panel6 />
               <Panel7 />
+              <Monitor />
+              <AccessControl />
+              <EquipmentDilog />
+              <CabinetInformation />
+              <StatisticsOne />
+              <StatisticsTow />
+              <NetworkStatistics />
             </div>
           </div>
         </Suspense>

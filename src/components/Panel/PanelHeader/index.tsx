@@ -5,6 +5,7 @@ import "./index.css"
 interface Iprops {
     title: string;
     imgSrc?: string;
+    company?: string;
 }
 
 const PanelHeader = (props: Iprops) => {
@@ -13,7 +14,7 @@ const PanelHeader = (props: Iprops) => {
             <img src={props.imgSrc || headImg} alt="" />
             <div className="header-title">
                 <span className="left-spot"></span>
-                <span className="right-spot"></span>
+                <span className="right-spot">{props.company||''}</span>
                 <span className="header-title-left">{props.title}</span>
             </div>
         </div>

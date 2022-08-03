@@ -1,0 +1,85 @@
+.monitor_contentOtrs>div{
+    width: calc(100% - 30px);
+    margin: 10px 15px;
+}
+.monitor_boxOtrs{
+    width: 300px;
+    height: 220px;
+    & .monitor_titleOtrs{
+        width: 100%;
+        height: 30px;
+        color: #fff;
+        line-height: 30px;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(90deg, #00AFFF 0%, rgba(122, 246, 255, 0.85) 100%);
+        
+        & img{
+            height: 20px;
+            margin: 0 15px;
+        }
+    }
+    & .monitor_contentOtrs{
+        width: 100%;
+        height: calc(100% - 60px);
+        margin-top: 10px;
+        background-color: rgba(11, 16, 23, 0.6);
+        color: rgba(255, 255, 255, 1);
+        border: 2px solid rgba(125, 245, 255, 1);
+        font-size: 14px;
+        overflow: hidden;
+        & .monitor_content_oneOtrs{
+            display: flex;
+            justify-content: space-between;
+            & .monitor_content_one_leftOtrs{
+                & span{
+                    display: inline-block;	
+                }
+                & .monitor_content_one_left_statusOtrs{
+                    margin-left: 20px;
+                    color: #3DD36E;
+                }
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            }
+            & .monitor_content_one_rightOtrs{
+                & span{
+                    display: inline-block;
+                }
+                & .monitor_content_one_right_timeOtrs{
+                    margin-left: 20px;
+                }
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+            }
+            
+        }
+        & .monitor_content_towOtrs{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        }
+        
+        & .monitor_content_threeOtrs{
+            & .monitor_content_three_itemOtrs{
+                width: calc(100% - 20px);
+                margin: 20px 10px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+                & img{
+                    height: 16px;
+                    margin-right: 6px;
+                }
+                & .peopleNumOtrs{
+                    font-size: 16px;
+                    color: rgba(125, 245, 255, 1);
+                }
+            }
+        }
+        
+        
+        
+        
+    }
+}
+

@@ -1,48 +1,38 @@
 import React, { FC, useEffect, useState } from 'react';
 import chartHeaderImg from '@assets/modelAssets/SingleCabinet/jgyx.svg'
 import "./chartView.css"
-console.log("chartHeaderImg", chartHeaderImg)
-const allData = [{
-        title: '功率',
-        data: 2468,
-        max: 10000,
-        company: 'W'
-    }, {
-        title: '直流',
-        data: 2,
-        max: 8,
-        company: 'A'
-        
-    }, {
-        title: '交流',
-        data: 10,
-        max: 40,
-        company: 'A'
-    }]
+
+interface IpropsItemType {
+    title: string;
+    data: number;
+    max: number;
+    company: string;
+}
+
+interface Iprops{
+    statusData: Array<IpropsItemType>
+}
 
 
-const ChartView: FC<{}> = () => {
-    const [chartData, setChartData] = useState([])
-
-    useEffect(() => {
-        setChartData(allData)
-    }, [])
+const ChartView: FC<Iprops> = (props)=> {
+    
+    const {statusData} = props
     
     return (
         <div className='model_charts_data' style={{ display: 'flex' }}>
             <div className="chartDataThree_leftX">
                 {
-                    chartData.map((item, index) => {
+                    statusData.map((item, index) => {
                         return <div
                         key={index} 
-                        style={{top: index * 56 + 'px'}} 
+                        style={{top: index * 62 + 'px'}} 
                         className="chartDataThree_leftX_dian"></div>
                     })
                 }
             </div>
             <div className="chartDataThree_content">
                 {
-                    chartData.map((item, index) => {
+                    statusData.map((item, index) => {
                         return <div className="chartDataThree_item" key={index}>
                             <div className="chartDataThree_top">
                                 <span>{item.title}</span>

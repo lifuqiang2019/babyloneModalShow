@@ -5,6 +5,7 @@ import "./index.css"
 interface IHeaderProps {
     title?: string;
     imgSrc?: string;
+    company?: string;
 }
 
 interface IProps extends IHeaderProps {
