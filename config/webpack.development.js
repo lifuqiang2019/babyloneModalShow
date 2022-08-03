@@ -28,6 +28,7 @@ module.exports = {
         // quiet:true,
         watchContentBase: true,
         inline:true,
+        host: '0.0.0.0',
         hot: true
     },
     devtool:"source-map",

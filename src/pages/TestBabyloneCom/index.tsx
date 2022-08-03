@@ -9,6 +9,11 @@ import React, {
   // import { ques } from "@api/index";
   import Loading from "@components/Loading/Loading";
   import BtnBoxs from "@components/Panel/components/BtnChecks";
+  import FloorScene from "./scenes/FloorScene";
+  import FloorScene1 from "./scenes/FloorScene1";
+  import FloorScene2 from "./scenes/FloorScene2";
+  import ComputerRoom from "./scenes/ComputerRoom";
+  import Cabinet from "./scenes/Cabinet";
   import AlarmScene from "./scenes/AlarmScene";
   import SafeScene from "./scenes/SafeScene";
   import A01Scene from "./scenes/A01Scene";
@@ -19,13 +24,28 @@ import React, {
 
   const BtnData = [
     {
+        name: "楼宇",
+        flag: true,
+        childrenStatus: true,
+        children: [
+            {
+                name: "楼层一",
+                flag: true
+            },
+            {
+                name: "楼层二",
+                flag: false
+            }
+        ]
+    },
+    {
         name: "机房",
         flag: true,
         childrenStatus: true,
         children: [
             {
                 name: "安防监测",
-                flag: true
+                flag: false
             },
             {
                 name: "电力监测",
@@ -63,8 +83,13 @@ import React, {
 ]
 
 const btnMapCom = {
+  "楼宇": <FloorScene />,
+  "楼层一": <FloorScene1 />,
+  "楼层二": <FloorScene2 />,
+  "机房": <ComputerRoom />,
   "安防监测": <SafeScene />,
   "电力监测": <AlarmScene />,
+  "机柜": <Cabinet />,
   "A-01": <A01Scene />,
   "A-02": <A02Scene />,
   "A-03": <A03Scene />,
@@ -73,7 +98,7 @@ const btnMapCom = {
 }
   
 const SceneRender: FC<{}> = () => {
-  const [sceneType, setSceneType] = useState("安防监测")
+  const [sceneType, setSceneType] = useState("楼宇")
   const RenderScene = (sceneType: string) => {
     const Com = btnMapCom[sceneType]
     return Com

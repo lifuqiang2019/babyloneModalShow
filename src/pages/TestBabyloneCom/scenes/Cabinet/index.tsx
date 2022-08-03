@@ -13,16 +13,16 @@ import {
   PointerEventTypes
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
-import '@babylonjs/loaders'
+import '@babylonjs/loaders';
 // import '@babylonjs/inspector'
 import gsap from 'gsap';
 
 
-const SceneBabylon: FC<{}> = () => {
+const FloorScene: FC<{}> = () => {
   const cameraRef = useRef(null)
   const sceneRef = useRef(null)
   const canvasRef = useRef(null)
-  const shows: any = useRef({ "jg_03": false, "jg_08": false }).current
+  const shows: any = useRef({ "jg_03": false }).current
 
   const onSceneReady = (scene: Scene) => {
     // scene.debugLayer.show({
@@ -34,7 +34,7 @@ const SceneBabylon: FC<{}> = () => {
 
     camera.setTarget(Vector3.Zero());
     camera.attachControl(canvas, true);
-    light.intensity = 0.7;
+    light.intensity = 1;
     scene.createDefaultCamera(true, true, true);
 
     sceneRef.current = scene
@@ -58,11 +58,9 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
-    if(!mesh.parent || !mesh.parent.name) return
-    console.log("meshName", mesh.parent.name)
-    if(shows[mesh.parent.name] !== undefined) {
+    if(mesh.parent.name === "jg_03") {
       const position = mesh.parent.position
-      const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
+      const z = position.z + (!shows[mesh.parent.name] ? 0.014 : -0.014)
       gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
       shows[mesh.parent.name] = !shows[mesh.parent.name]
     }
@@ -70,14 +68,14 @@ const SceneBabylon: FC<{}> = () => {
 
   const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "/static/jf_jg/ddjg_b/", 
+      "/static/jf_jg/jigui/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
         scene.activeCamera.beta = Math.PI / 3;
-        scene.activeCamera.radius = 0.135;
+        scene.activeCamera.radius = 0.2;
 
         scene.meshes.forEach(mesh => {
-          mesh.actionManager = new ActionManager(scene);
+          mesh.actionManager = new ActionManager(scene)
         })
 
         // 模型点击拾取
@@ -86,7 +84,8 @@ const SceneBabylon: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jf_jg_b.gltf")
+    loadModal("jigui_xuanran_0520.gltf");
+    
   }, []);
 
   return <>
@@ -101,4 +100,4 @@ const SceneBabylon: FC<{}> = () => {
   </>;
 }
 
-export default SceneBabylon
+export default FloorScene;

@@ -13,16 +13,15 @@ import {
   PointerEventTypes
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
+// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import '@babylonjs/loaders'
 // import '@babylonjs/inspector'
-import gsap from 'gsap';
 
 
 const SceneBabylon: FC<{}> = () => {
   const cameraRef = useRef(null)
   const sceneRef = useRef(null)
   const canvasRef = useRef(null)
-  const shows: any = useRef({ "jg_03": false, "jg_08": false }).current
 
   const onSceneReady = (scene: Scene) => {
     // scene.debugLayer.show({
@@ -58,26 +57,25 @@ const SceneBabylon: FC<{}> = () => {
 
     }
     
-    if(!mesh.parent || !mesh.parent.name) return
-    console.log("meshName", mesh.parent.name)
-    if(shows[mesh.parent.name] !== undefined) {
-      const position = mesh.parent.position
-      const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
-      gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
-      shows[mesh.parent.name] = !shows[mesh.parent.name]
-    }
+    console.log("meshName", meshName, mesh)
   }
 
   const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "/static/jf_jg/ddjg_b/", 
+      "/static/jf_jg/jifang/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
-        scene.activeCamera.beta = Math.PI / 3;
-        scene.activeCamera.radius = 0.135;
+        scene.activeCamera.beta = Math.PI / 6;
+        scene.activeCamera.radius = 0.31;
 
+        // 初始化遍历模型
+        const clearMeshObj: any = {}
+        // "jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001"
+        const clearMeshArr: any = ['Jf_Sxt_001', 'Jf_Sxt_004', 'Jf_Sxt_003', 'Jf_Sxt_002', 'JF_Txmx_DianLi_Pipeline_002', 'JF_Txmx_DianLi_Pipeline_001', 'JF_Men_001', 'JF_Men_002', 'Jf_Sxt_Steel_001', 'Jf_Sxt_Steel_004', 'Jf_Sxt_Steel_002', 'Jf_Sxt_Steel_003'];
+        clearMeshArr.forEach(clearMesh => clearMeshObj[clearMesh] = clearMesh)
         scene.meshes.forEach(mesh => {
-          mesh.actionManager = new ActionManager(scene);
+          mesh.actionManager = new ActionManager(scene)
+          if(clearMeshObj[mesh.id]) mesh.isVisible = false
         })
 
         // 模型点击拾取
@@ -86,7 +84,7 @@ const SceneBabylon: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jf_jg_b.gltf")
+    loadModal("jifang_0520.gltf")
   }, []);
 
   return <>
