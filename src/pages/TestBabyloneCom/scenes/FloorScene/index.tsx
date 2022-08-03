@@ -17,12 +17,19 @@ import '@babylonjs/loaders';
 // import '@babylonjs/inspector'
 import gsap from 'gsap';
 
-
 const FloorScene: FC<{}> = () => {
   const cameraRef = useRef(null)
   const sceneRef = useRef(null)
   const canvasRef = useRef(null)
   const shows: any = useRef({ "jg_03": false }).current
+  const modalMainRef = useRef(null)
+  const modalFloorOneRef = useRef(null)
+  const modalFloorTwoRef = useRef(null)
+  const loadMap: any = {
+    "mhxxds_jz_001.gltf": modalMainRef.current, 
+    "mhxxds_nbfc_001.gltf": modalFloorOneRef.current, 
+    "mhxxds_jgq_001.gltf": modalFloorTwoRef.current,
+  }
 
   const onSceneReady = (scene: Scene) => {
     // scene.debugLayer.show({
@@ -44,48 +51,55 @@ const FloorScene: FC<{}> = () => {
 
   const onRender = (scene: any) => {};
   const modelPick = (e: any) => {
-    // 1: 异常监控器, 2: 正常监控器, 3: 未开启监控器
-    const JF_SXT_STATUS_MAP: any = {
-      Jf_Sxt_001: 1,
-      Jf_Sxt_004: 2,
-      Jf_Sxt_003: 3,
-      Jf_Sxt_002: 3,
-    }
     const mesh = e.pickInfo.pickedMesh
     const meshName = mesh.name
 
-    if(JF_SXT_STATUS_MAP[meshName]) {
+    // 下转
+    goNextScene()
+  }
 
-    }
-    
-    if(mesh.parent.name === "jg_03") {
-      const position = mesh.parent.position
-      const z = position.z + (!shows[mesh.parent.name] ? 0.014 : -0.014)
-      gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
-      shows[mesh.parent.name] = !shows[mesh.parent.name]
+  const goNextScene = () => {
+    console.log("all models", loadMap)
+    loadMap['mhxxds_jz_001.gltf'].removeAllFromScene()
+    loadMap["mhxxds_nbfc_001.gltf"].addAllToScene()
+
+    const scene = sceneRef.current
+    const cameraParams = scene.activeCamera
+    gsap.to(cameraParams, { duration: 1.3, ease: "power2.out", alpha: Math.PI / 2 });
+    gsap.to(cameraParams, { duration: 1.3, ease: "power2.out", beta: Math.PI / 3 });
+    gsap.to(cameraParams, { duration: 1.3, ease: "power2.out", radius: 3 });
+  }
+
+  const colllectionModal = (modal: any, name: string) => {
+    loadMap[name] = modal
+    if(name == "mhxxds_jz_001.gltf") {
+      modal.addAllToScene()
     }
   }
 
-  const loadModal = (modalName: string) => {
-    SceneLoader.AppendAsync(
-      "/static/jf_jg/mhxxds_jz_001/", 
-      modalName, sceneRef.current).then(function (scene) {
-        scene.activeCamera.alpha = Math.PI / 2;
-        scene.activeCamera.beta = Math.PI / 3;
-        scene.activeCamera.radius = 10;
+  const loadAssetsModal = (modalName: string) => {
+    SceneLoader.LoadAssetContainer(`/static/jf_jg/${modalName.split(".")[0]}/`, modalName, sceneRef.current, function (container) {
+      const scene = sceneRef.current
+      scene.activeCamera.alpha = Math.PI / 2;
+      scene.activeCamera.beta = Math.PI / 3;
+      scene.activeCamera.radius = 10;
 
-        scene.meshes.forEach(mesh => {
-          mesh.actionManager = new ActionManager(scene)
-        })
+      const meshes = container.meshes;
+      const materials = container.materials;
+      scene.meshes.forEach(mesh => {
+        mesh.actionManager = new ActionManager(scene)
+      })
 
-        // 模型点击拾取
-        scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
-    });
+      // 模型点击拾取
+      scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
+      colllectionModal(container, modalName)
+    })
   }
 
-  useEffect(()=>{ 
-    loadModal("mhxxds_jz_001.gltf");
-    
+  useEffect(()=>{
+    Object.keys(loadMap).forEach(map => {
+      loadAssetsModal(map)
+    })
   }, []);
 
   return <>
