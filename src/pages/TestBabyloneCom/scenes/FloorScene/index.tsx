@@ -38,7 +38,6 @@ const FloorScene: FC<{}> = () => {
   const modalcabinetThreeRef = useRef(null)
   const modalcabinetFourRef = useRef(null)
   const modalcabinetFiveRef = useRef(null)
-  const [meshName, setMashName] = useState("");
   const loadMap: any = {
     "mhxxds_jz_001.gltf": modalMainRef.current, 
     "mhxxds_nbfc_001.gltf": modalFloorOneRef.current, 
@@ -91,24 +90,10 @@ const FloorScene: FC<{}> = () => {
   const onRender = (scene: any) => {};
   const modelPick = (e: any) => {
     const mesh = e.pickInfo.pickedMesh
-    // const meshName = mesh.parent?.parent?.name
-    let meshName = '';
-    if (mesh.parent) {
-      meshName = mesh.parent.name
-      if (mesh.parent.parent) {
-        meshName = mesh.parent.parent.name
-      }
-    } 
-    // 下钻
-    if (meshName !== 'jg_03') {
-      goNextScene(meshName)
-    }
-    // 点击抽出动画
-    showModal(mesh)
-  }
+    const meshName = mesh.parent.parent.name
 
-  const showModal = (mesh: any) => {
-    if(!mesh.parent || !mesh.parent.name) return
+    // 下钻
+    goNextScene(meshName)
     if(mesh.parent.name === "jg_03") {
       const position = mesh.parent.position
       const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
@@ -119,11 +104,29 @@ const FloorScene: FC<{}> = () => {
     }
   }
 
+  const activeMesh = (name: string) => {
+    const meshStatus = shows[name]
+    console.log("当前激活mesh", name, meshStatus)
+  }
+
+  const otherModalInit = (name: string) => {
+    const scene = sceneRef.current
+    Object.keys(shows).forEach(modalName => {
+      if(name !== modalName && shows[modalName] == true) {
+        const Nodes = scene.getNodes()
+        Nodes.forEach(mesh => {
+          if(mesh.name === modalName) {
+            gsap.to(mesh.position, { duration: 1.3, ease: "power2.out", z: 0 });
+          }
+        })
+        shows[modalName] = false
+      } 
+    })
+  }
+
   const goNextScene = (meshName: string) => {
     const scene = sceneRef.current
     const cameraParams = scene.activeCamera
-    console.log("all models", meshName)
-    setMashName(meshName);
     switch (meshName) {
       case 'mhxxds_jz_b_001':
           loadMap['mhxxds_jz_001.gltf'].removeAllFromScene()
@@ -171,8 +174,6 @@ const FloorScene: FC<{}> = () => {
         mesh.actionManager = new ActionManager(scene)
       })
 
-      // 模型点击拾取
-      scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
       colllectionModal(container, modalName)
     })
   }
@@ -194,34 +195,14 @@ const FloorScene: FC<{}> = () => {
     });
   }
 
-  const activeMesh = (name: string) => {
-    const meshStatus = shows[name]
-    console.log("当前激活mesh", name, meshStatus)
-  }
-
-  const otherModalInit = (name: string) => {
-    const scene = sceneRef.current
-    Object.keys(shows).forEach(modalName => {
-      if(name !== modalName && shows[modalName] == true) {
-        const Nodes = scene.getNodes()
-        Nodes.forEach((mesh: any) => {
-          if(mesh.name === modalName) {
-            gsap.to(mesh.position, { duration: 1.3, ease: "power2.out", z: 0 });
-          }
-        })
-        shows[modalName] = false
-      } 
-    })
-  }
-
   useEffect(()=>{
-    if (meshName == 'mhxxds_jgq_jg_001') {
-      loadModal("jf_jg_a.gltf");
-    } else {
-      Object.keys(loadMap).forEach(map => {
-        loadAssetsModal(map)
-      })
-    }
+    Object.keys(loadMap).forEach(map => {
+      loadAssetsModal(map)
+    })
+    
+    // 模型点击拾取
+    const scene = sceneRef.current
+    scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
   }, []);
 
   return <>
