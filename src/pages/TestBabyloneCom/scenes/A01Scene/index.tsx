@@ -96,8 +96,7 @@ const SceneBabylon: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jf_jg_a.gltf");
-    
+    loadModal("jf_jg_a.gltf"); 
   }, []);
 
   return <>
