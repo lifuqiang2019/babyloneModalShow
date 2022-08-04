@@ -83,8 +83,8 @@ const SceneBabylon: FC<{}> = () => {
       "/static/jf_jg/ddjg_a/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
-        scene.activeCamera.beta = Math.PI / 3;
-        scene.activeCamera.radius = 0.135;
+        scene.activeCamera.beta = Math.PI / 3.5;
+        scene.activeCamera.radius = 0.155;
 
         scene.meshes.forEach(mesh => {
           mesh.actionManager = new ActionManager(scene)

@@ -24,18 +24,18 @@ import React, {
 
   const BtnData = [
     {
-        name: "楼宇",
+        name: "数据中心",
         flag: true,
         childrenStatus: true,
         children: [
-            {
-                name: "楼层一",
-                flag: true
-            },
-            {
-                name: "楼层二",
-                flag: false
-            }
+            // {
+            //     name: "楼层一",
+            //     flag: false
+            // },
+            // {
+            //     name: "楼层二",
+            //     flag: false
+            // }
         ]
     },
     {
@@ -43,14 +43,14 @@ import React, {
         flag: true,
         childrenStatus: true,
         children: [
-            {
-                name: "安防监测",
-                flag: false
-            },
-            {
-                name: "电力监测",
-                flag: false
-            }
+            // {
+            //     name: "安防监测",
+            //     flag: false
+            // },
+            // {
+            //     name: "电力监测",
+            //     flag: false
+            // }
         ]
     },
     {
@@ -59,46 +59,46 @@ import React, {
         childrenStatus: true,
         children: [
             {
-                name: "A-01",
+                name: "C19",
                 flag: false
             },
             {
-                name: "A-02",
+                name: "C20",
                 flag: false
             },
-            {
-                name: "A-03",
-                flag: false
-            },
-            {
-                name: "A-04",
-                flag: false
-            },
-            {
-                name: "A-05",
-                flag: false
-            }
+            // {
+            //     name: "A-03",
+            //     flag: false
+            // },
+            // {
+            //     name: "A-04",
+            //     flag: false
+            // },
+            // {
+            //     name: "A-05",
+            //     flag: false
+            // }
         ]
     }
 ]
 
 const btnMapCom = {
-  "楼宇": <FloorScene />,
+  "数据中心": <FloorScene />,
   "楼层一": <FloorScene1 />,
   "楼层二": <FloorScene2 />,
   "机房": <ComputerRoom />,
   "安防监测": <SafeScene />,
   "电力监测": <AlarmScene />,
   "机柜": <Cabinet />,
-  "A-01": <A01Scene />,
-  "A-02": <A02Scene />,
+  "C19": <A01Scene />,
+  "C20": <A02Scene />,
   "A-03": <A03Scene />,
   "A-04": <A04Scene />,
   "A-05": <A05Scene />
 }
   
 const SceneRender: FC<{}> = () => {
-  const [sceneType, setSceneType] = useState("楼宇")
+  const [sceneType, setSceneType] = useState("数据中心")
   const RenderScene = (sceneType: string) => {
     const Com = btnMapCom[sceneType]
     return Com
