@@ -93,6 +93,34 @@ const FloorScene: FC<{}> = () => {
     const meshName = mesh.parent.parent.name
     // 下钻
     goNextScene(meshName)
+    if(mesh.parent.name === "jg_03") {
+      const position = mesh.parent.position
+      const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
+      gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
+      shows[mesh.parent.name] = !shows[mesh.parent.name]
+      otherModalInit(mesh.parent.name)
+      activeMesh(mesh.parent.name)
+    }
+  }
+
+  const activeMesh = (name: string) => {
+    const meshStatus = shows[name]
+    console.log("当前激活mesh", name, meshStatus)
+  }
+
+  const otherModalInit = (name: string) => {
+    const scene = sceneRef.current
+    Object.keys(shows).forEach(modalName => {
+      if(name !== modalName && shows[modalName] == true) {
+        const Nodes = scene.getNodes()
+        Nodes.forEach(mesh => {
+          if(mesh.name === modalName) {
+            gsap.to(mesh.position, { duration: 1.3, ease: "power2.out", z: 0 });
+          }
+        })
+        shows[modalName] = false
+      } 
+    })
   }
 
   const goNextScene = (meshName: string) => {
@@ -146,8 +174,6 @@ const FloorScene: FC<{}> = () => {
         mesh.actionManager = new ActionManager(scene)
       })
 
-      // 模型点击拾取
-      scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
       colllectionModal(container, modalName)
     })
   }
@@ -156,6 +182,10 @@ const FloorScene: FC<{}> = () => {
     Object.keys(loadMap).forEach(map => {
       loadAssetsModal(map)
     })
+    
+    // 模型点击拾取
+    const scene = sceneRef.current
+    scene.onPointerObservable.add(modelPick, PointerEventTypes.POINTERTAP)
   }, []);
 
   return <>
