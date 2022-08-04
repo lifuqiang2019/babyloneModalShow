@@ -68,7 +68,7 @@ const FloorScene: FC<{}> = () => {
 
   const loadModal = (modalName: string) => {
     SceneLoader.AppendAsync(
-      "/static/jf_jg/jigui/", 
+      "/static/jf_jg/ddjg_a/", 
       modalName, sceneRef.current).then(function (scene) {
         scene.activeCamera.alpha = Math.PI / 2;
         scene.activeCamera.beta = Math.PI / 3;
@@ -84,7 +84,7 @@ const FloorScene: FC<{}> = () => {
   }
 
   useEffect(()=>{ 
-    loadModal("jigui_xuanran_0520.gltf");
+    loadModal("jf_jg_a.gltf");
     
   }, []);
 
