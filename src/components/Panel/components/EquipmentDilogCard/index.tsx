@@ -2,12 +2,12 @@ import React, { FC } from 'react'
 import './index.scss'
 
 type arrayItemType = {
-    types: number,
-    title: string,
-    connectStatus: string,
-    status: string,
-    topOne: string,
-    topTow: string,
+    types: number, // 设备类型
+    title: string, // 设备名称
+    connectStatus: string, // 连接状态
+    status: string, // 设备状态
+    topOne: string, // 第一条报警
+    topTow: string, // 第二条报警
     topThree: string,
     
     botOne: string,

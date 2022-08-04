@@ -51,8 +51,8 @@ const Routes:FC = ()=>{
     const location = useLocation()
     return (
         <Suspense fallback={<Loading />}>
-          <TransitionGroup>
-                <CSSTransition key={location.key} timeout={1000} classNames="fade">
+          {/* <TransitionGroup> */}
+                {/* <CSSTransition key={location.key} timeout={1000} classNames="fade"> */}
                   <Switch>
                       {
                           routes.map((r,index)=>{
@@ -73,8 +73,8 @@ const Routes:FC = ()=>{
                       {/* 兜底的路由 */}
                       <Route component={NotFound} />
                   </Switch>
-                </CSSTransition>
-          </TransitionGroup>
+                {/* </CSSTransition> */}
+          {/* </TransitionGroup> */}
         </Suspense>
     )
 }
