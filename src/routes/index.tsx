@@ -1,4 +1,6 @@
 import React, { FC,Suspense } from "react";
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { useLocation } from "react-router-dom";
 import { Route, Switch, RouteProps } from "react-router";
 import Loading from '@components/Loading/Loading';
 import NotFound from '@pages/NotFound/NotFound';
@@ -33,7 +35,7 @@ export const routes: RouteProps[] = [
     component: QuesInfo,
   },
   {
-    path: "/textBabylone",
+    path: "/testBabylone",
     exact: true,
     component: TestBabyloneCom,
   },
@@ -46,28 +48,33 @@ export const routes: RouteProps[] = [
 
 // 定义路由组件
 const Routes:FC = ()=>{
+    const location = useLocation()
     return (
         <Suspense fallback={<Loading />}>
-            <Switch>
-                {
-                    routes.map((r,index)=>{
-                        const {path,exact,component} = r;
-                        const LazyCom = component;
-                        return (
-                            <Route
-                                key={index}
-                                path={path}
-                                exact={exact}
-                                render={
-                                    (props)=><LazyCom {...props} />
-                                }
-                             />
-                        )
-                    })
-                }
-                {/* 兜底的路由 */}
-                <Route component={NotFound} />
-            </Switch>
+          <TransitionGroup>
+                <CSSTransition key={location.key} timeout={1000} classNames="fade">
+                  <Switch>
+                      {
+                          routes.map((r,index)=>{
+                              const {path,exact,component} = r;
+                              const LazyCom = component;
+                              return (
+                                  <Route
+                                      key={index}
+                                      path={path}
+                                      exact={exact}
+                                      render={
+                                          (props)=><LazyCom {...props} />
+                                      }
+                                  />
+                              )
+                          })
+                      }
+                      {/* 兜底的路由 */}
+                      <Route component={NotFound} />
+                  </Switch>
+                </CSSTransition>
+          </TransitionGroup>
         </Suspense>
     )
 }
