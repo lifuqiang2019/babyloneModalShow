@@ -46,28 +46,38 @@ const SceneBabylon: FC<{}> = () => {
 
   const onRender = (scene: any) => {};
   const modelPick = (e: any) => {
-    // 1: 异常监控器, 2: 正常监控器, 3: 未开启监控器
-    const JF_SXT_STATUS_MAP: any = {
-      Jf_Sxt_001: 1,
-      Jf_Sxt_004: 2,
-      Jf_Sxt_003: 3,
-      Jf_Sxt_002: 3,
-    }
     const mesh = e.pickInfo.pickedMesh
     const meshName = mesh.name
-
-    if(JF_SXT_STATUS_MAP[meshName]) {
-
-    }
     
     if(!mesh.parent || !mesh.parent.name) return
-    console.log("meshName", mesh.parent.name)
     if(shows[mesh.parent.name] !== undefined) {
       const position = mesh.parent.position
       const z = !shows[mesh.parent.name] ? position.z + 0.014 : 0
       gsap.to(position, { duration: 1.3, ease: "power2.out", z: z });
       shows[mesh.parent.name] = !shows[mesh.parent.name]
+      otherModalInit(mesh.parent.name)
+      activeMesh(mesh.parent.name)
     }
+  }
+
+  const activeMesh = (name: string) => {
+    const meshStatus = shows[name]
+    console.log("当前激活mesh", name, meshStatus)
+  }
+
+  const otherModalInit = (name: string) => {
+    const scene = sceneRef.current
+    Object.keys(shows).forEach(modalName => {
+      if(name !== modalName && shows[modalName] == true) {
+        const Nodes = scene.getNodes()
+        Nodes.forEach(mesh => {
+          if(mesh.name === modalName) {
+            gsap.to(mesh.position, { duration: 1.3, ease: "power2.out", z: 0 });
+          }
+        })
+        shows[modalName] = false
+      } 
+    })
   }
 
   const loadModal = (modalName: string) => {
