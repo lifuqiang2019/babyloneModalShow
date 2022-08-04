@@ -1339,7 +1339,7 @@
   dependencies:
     tslib "^2.3.1"
 
-"@babylonjs/inspector@^5.4.0":
+"@babylonjs/inspector@^5.17.1":
   version "5.17.1"
   resolved "https://registry.yarnpkg.com/@babylonjs/inspector/-/inspector-5.17.1.tgz#60fc33b79e44d81ac83fc64d9460656c59ff4e86"
   integrity sha512-EhhEcfNriz4njJW11BO8U8nZkqNV9PWL8hhCNMom+mqwwdK4rxt780NeebF5qYnB4VjY5K+i+Ti1s3PNBCroig==
@@ -4278,7 +4278,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.npmmirror.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz"
   integrity sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==
 
-copy-webpack-plugin@9:
+copy-webpack-plugin@9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-9.1.0.tgz#2d2c460c4c4695ec0a58afb2801a1205256c4e6b"
   integrity sha512-rxnR7PaGigJzhqETHGmAcxKnLZSR5u1Y3/bcIv/1FnqXedcL/E2ewK7ZCNrArJKCiSv8yVXhTqetJh8inDvfsA==

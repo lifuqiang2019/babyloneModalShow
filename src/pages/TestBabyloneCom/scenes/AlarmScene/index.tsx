@@ -51,7 +51,7 @@ const SceneBabylon: FC<{}> = () => {
       Jf_Sxt_002: 3,
     }
     const mesh = e.pickInfo.pickedMesh
-    const meshName = mesh.name
+    const meshName = mesh && mesh.name
 
     if(JF_SXT_STATUS_MAP[meshName]) {
 
@@ -70,7 +70,7 @@ const SceneBabylon: FC<{}> = () => {
 
         // 初始化遍历模型
         const clearMeshObj: any = {}
-        const clearMeshArr = ["jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001"]
+        const clearMeshArr = ["jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001", "Jf_Jg_fqpz_003", "Jf_Jg_fqpz_002", "Jf_Jg_fqpz_001", "Jf_Jg_fqpz_004", "JF_Men_001", "Jf_Sxt_004", "Jf_Sxt_Steel_004", "Jf_Sxt_002", "Jf_Sxt_Steel_002", "Jf_Sxt_001", "Jf_Sxt_Steel_001", "JF_Men_002", "rk_002", "Jf_Jg_fqpz_005", "rk_001", "JF_DM_001", "JG_Txmx_Xk_Rk_001", "JF_MJ_Black_001", "JF_MJ_PM_Blue_001", "JF_MJ_Zhi Wen_001", "JF_MJ_An Jian_Gray_001", "JG_Txmx_Xk_bgq_001", "JG_Txmx_Xk_jgq_001", "JG_Txmx_Xk_dlj_001", "JG_Txmx_Xk_Lqq_001", "Jf_Sxt_003", "Jf_Sxt_Steel_003"]
         clearMeshArr.forEach(clearMesh => clearMeshObj[clearMesh] = clearMesh)
         scene.meshes.forEach(mesh => {
           mesh.actionManager = new ActionManager(scene)

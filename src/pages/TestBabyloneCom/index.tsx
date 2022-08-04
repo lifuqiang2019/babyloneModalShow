@@ -30,7 +30,7 @@ import React, {
         children: [
             {
                 name: "楼层一",
-                flag: true
+                flag: false
             },
             {
                 name: "楼层二",

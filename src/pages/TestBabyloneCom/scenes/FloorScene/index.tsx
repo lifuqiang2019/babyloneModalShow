@@ -5,8 +5,16 @@ import {
   UniversalCamera, 
   Camera, 
   Vector3, 
-  HemisphericLight, 
-  MeshBuilder, 
+  HemisphericLight, // 后置灯光
+  PointLight, // 点光源
+  DirectionalLight, // 平行光
+  Color3, // 颜色
+  SpotLight, // 聚光灯
+  Texture, // 纹理
+  ShadowGenerator, // 阴影
+  MeshBuilder, // 网格生成器
+  Mesh, // 网格
+  StandardMaterial, // 材质
   SceneLoader, 
   Scene,
   ActionManager,
@@ -14,9 +22,8 @@ import {
 } from "@babylonjs/core";
 import SceneComponent from "@components/SceneBabylone"; // uses above component in same directory
 import '@babylonjs/loaders';
-// import '@babylonjs/inspector'
+// import '@babylonjs/inspector';
 import gsap from 'gsap';
-
 
 const FloorScene: FC<{}> = () => {
   const cameraRef = useRef(null)
@@ -30,11 +37,21 @@ const FloorScene: FC<{}> = () => {
     // });
     const canvas = scene.getEngine().getRenderingCanvas();
     const camera = new FreeCamera("FreeCamera", new Vector3(0, 0, -1), scene);
-    const light = new HemisphericLight("light", new Vector3(0, 1, 1), scene);
-
+    const light = new HemisphericLight("Hemi0", new Vector3(0, 1, 0), scene);
+    // const light0 = new DirectionalLight("DirectionalLight", new Vector3(0, -1, 0), scene);
+    
     camera.setTarget(Vector3.Zero());
     camera.attachControl(canvas, true);
     light.intensity = 0.7;
+    
+    const light00 = new SpotLight("*spot00", new Vector3(-30, 20, -10), new Vector3(0, -1, 0.3), 1.2, 24, scene);
+    const shadowGenerator = new ShadowGenerator(1024, light00);
+    // // shadow
+    // shadowGenerator.useVarianceShadowMap = true;
+    shadowGenerator.getShadowMap().renderList.push(scene.getMeshByName("jg_03"));
+    shadowGenerator.usePoissonSampling = true;
+    // light0.diffuse = new Color3(0, 0, 0);
+    // light0.specular = new Color3(0, 0, 0);
     scene.createDefaultCamera(true, true, true);
 
     sceneRef.current = scene

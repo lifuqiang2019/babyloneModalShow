@@ -70,7 +70,7 @@ const SceneBabylon: FC<{}> = () => {
 
         // 初始化遍历模型
         const clearMeshObj: any = {}
-        const clearMeshArr = ["jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001", "JF_Txmx_DianLi_Pipeline_002", "JF_Txmx_DianLi_Pipeline_001", "JF_Men_002", "JF_Men_001"]
+        const clearMeshArr = ["jgq_002", "jgq_001", "dlj_002", "dlj_001", "lqq_002", "lqq_001", "bgq_002", "bgq_001", "JF_Txmx_DianLi_Pipeline_002", "JF_Txmx_DianLi_Pipeline_001", "Jf_Jg_fqpz_005", "rk_002", "rk_001", "JG_Txmx_Xk_Rk_001", "JG_Txmx_Xk_bgq_001", "JG_Txmx_Xk_jgq_001", "JG_Txmx_Xk_Lqq_001", "JG_Txmx_Xk_dlj_001", "Jf_Jg_fqpz_003", "Jf_Jg_fqpz_001", "Jf_Jg_fqpz_002", "Jf_Jg_fqpz_004"]
         clearMeshArr.forEach(clearMesh => clearMeshObj[clearMesh] = clearMesh)
         scene.meshes.forEach(mesh => {
           mesh.actionManager = new ActionManager(scene)
